@@ -12,6 +12,11 @@ dependencies:
     - sudo chmod +x /usr/bin/wkhtmltopdf
   override:
     - sbt update
+    - sbt coverage test:compile
+  post:
+    - mkdir -p $CIRCLE_ARTIFACTS/scala-2.11
+    - mv target/scala-2.11/coverage-report  $CIRCLE_ARTIFACTS/scala-2.11/coverage-report
+    - mv target/scala-2.11/scoverage-report $CIRCLE_ARTIFACTS/scala-2.11/scoverage-report
   cache_directories:
     - ~/.ivy2
     - ~/.sbt
@@ -20,4 +25,5 @@ dependencies:
 test:
   override:
     - cd ui; npm install; npm test
-    - sbt test
+    - sbt coverage test
+    - sbt coverageReport
