@@ -14,4 +14,4 @@ dependencies:
 test:
   override:
     - cd ui; npm install; npm test
-    - sbt "server/test"
+    - "sbt server/test"
