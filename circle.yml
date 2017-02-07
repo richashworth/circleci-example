@@ -17,6 +17,10 @@ dependencies:
     - ~/.ivy2
     - ~/.sbt
     - ~/.m2
+    - target/resolution-cache
+    - target/streams
+    - project/target/resolution-cache
+    - project/target/streams
 
 test:
   override:
@@ -24,6 +28,8 @@ test:
     - sbt coverage test
     - sbt coverageReport
   post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/test-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
     - mkdir -p $CIRCLE_ARTIFACTS/scala-2.11
     - mv target/scala-2.11/coverage-report  $CIRCLE_ARTIFACTS/scala-2.11/coverage-report
     - mv target/scala-2.11/scoverage-report $CIRCLE_ARTIFACTS/scala-2.11/scoverage-report
