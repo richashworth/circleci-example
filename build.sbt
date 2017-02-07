@@ -1,4 +1,4 @@
-name := "server"
+name := "circleci-example"
 
 version := "1.0"
 
