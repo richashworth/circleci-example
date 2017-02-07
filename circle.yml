@@ -4,6 +4,7 @@ dependencies:
     - sudo dpkg -i sbt-0.13.13.deb
   cache_directories:
     - "~/.ivy2"
+    - "~/.ivy2/cache"
     - "~/.sbt"
 
 test:
