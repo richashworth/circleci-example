@@ -10,8 +10,6 @@ dependencies:
     - ~/.ivy2
     - ~/.sbt
     - ~/.m2
-  override:
-    - sbt update
 
 test:
   override:
