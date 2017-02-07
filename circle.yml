@@ -6,6 +6,10 @@ dependencies:
   pre:
     - wget -q https://dl.bintray.com/sbt/debian/sbt-0.13.13.deb
     - sudo dpkg -i sbt-0.13.13.deb
+    - wget http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
+    - tar -xf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
+    - mv wkhtmltox /usr/bin/wkhtmltopdf
+    - chmod +x /usr/bin/wkhtmltopdf
   override:
     - sbt update
   cache_directories:
