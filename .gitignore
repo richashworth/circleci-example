@@ -1,0 +1,9 @@
+.idea
+.ensime
+.ensime_cache
+*.sublime-project
+target
+.DS_Store
+node_modules
+*.log
+*.iml
