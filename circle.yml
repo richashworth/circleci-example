@@ -1,11 +1,17 @@
+machine:
+  java:
+    version: oraclejdk8
+
 dependencies:
   pre:
     - wget -q https://dl.bintray.com/sbt/debian/sbt-0.13.13.deb
     - sudo dpkg -i sbt-0.13.13.deb
   cache_directories:
-    - "~/.ivy2"
-    - "~/.ivy2/cache"
-    - "~/.sbt"
+    - ~/.ivy2
+    - ~/.sbt
+    - ~/.m2
+  override:
+    - sbt update
 
 test:
   override:
